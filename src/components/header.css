@@ -1,114 +1,141 @@
 /* Navbar styles */
 header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
-  
-  .logo img {
-    /* width: 150px; */
-    cursor: pointer;
-    /* margin: 20px; */
-    height: 50px;
-    object-fit: contain;
-    background-color: transparent;
-  }
-  
-  .Pagesname {
-    display: flex;
-    gap: 20px;
-    flex-grow: 1;
-    justify-content: center;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
+}
+
+.logo img {
+  height: 50px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.Pagesname {
+  display: flex;
+  gap: 20px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.Pagesname a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  padding: 8px 12px;
+  transition: color 0.3s ease;
+}
+
+.Pagesname a:hover {
+  color: #e91e63;
+}
+
+.search-bar input {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.search-bar input::placeholder {
+  color: #aaa;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-profile span {
+  font-weight: bold;
+  color: #333;
+}
+
+.user-profile button {
+  background-color: #e91e63;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.user-profile button:hover {
+  background-color: #d81b60;
+}
+
+/* Mobile menu icon */
+.mobile-menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
   .Pagesname a {
-    text-decoration: none;
-    font-size: 16px;
-    color: #333;
-    padding: 8px 12px;
-    transition: color 0.3s ease;
+    display: none; /* Hide navigation links in mobile view */
   }
-  
-  .Pagesname a:hover {
-    color: #e91e63;
+
+  .mobile-menu-icon {
+    display: block; /* Show menu icon in mobile view */
+    margin-left: 150px;
   }
-  
-  .search-bar input {
-    padding: 8px 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    outline: none;
+
+  .search-bar {
+    display: none; /* Hide search bar in mobile view */
   }
-  
-  .search-bar input::placeholder {
-    color: #aaa;
+}
+
+/* Drawer for mobile */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: #fff;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  z-index: 200;
+}
+
+.mobile-drawer .close-icon {
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.mobile-nav a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+}
+
+.mobile-nav a:hover {
+  color: #e91e63;
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 40px;
   }
-  
+
   .user-profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    gap: 5px;
   }
-  
-  .user-profile img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-  }
-  
-  .user-profile span {
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .user-profile button {
-    background-color: #e91e63;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .user-profile button:hover {
-    background-color: #d81b60;
-  }
-  
-  @media (max-width: 768px) {
-    .Pagesname {
-      display: none; /* Hide the navigation links on smaller screens */
-    }
-  
-    .user-profile {
-      flex-direction: column;
-      gap: 5px;
-    }
-  
-    .search-bar {
-      flex-grow: 1;
-      display: none;
-    }
-  
-    .logo img {
-      width: 120px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    header {
-      flex-wrap: wrap;
-      padding: 16px;
-      display: none;
-    }
-  
-    .search-bar input {
-      width: 100%;
-      margin-bottom: 16px;
-    }
-  }
-  
+}

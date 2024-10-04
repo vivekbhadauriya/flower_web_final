@@ -3,9 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import "./header.css";
 import AuthModal from "./AuthModal";
 import logo from "../assets/logo1.jpg";
+import { FaBars } from "react-icons/fa"; // Menu icon
+import { IoMdClose } from "react-icons/io"; // Close icon for drawer
+
 const Header = () => {
   const [user, setUser] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false); // State for drawer
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
@@ -47,26 +51,28 @@ const Header = () => {
         <img src={logo} alt="Logo" />
       </div>
 
-      {/* Navigation Links */}
-      <div className="Pagesname" style={{ marginLeft: "50px" }}>
-        <Link to="/home" className="Home">
-          Home
-        </Link>
-        <Link to="/romance-love">Romance & Love</Link>
-        <Link to="/about">About us</Link>
-        <Link to="/more">More</Link>
+      {/* Menu Icon for Mobile */}
+      <div className="mobile-menu-icon" onClick={() => setIsDrawerOpen(true)}>
+        <FaBars size={24} />
       </div>
+
+      {/* Navigation Links */}
+      <nav className="Pagesname">
+        <Link to="/home">Home</Link>
+        <Link to="/romance-love">Romance & Love</Link>
+        <Link to="/about-us">About Us</Link>
+        <Link to="/more">More</Link>
+      </nav>
 
       {/* Search Bar */}
       <div className="search-bar">
-        <input type="text" placeholder="Search here" />
+        <input type="text" placeholder="Search..." />
       </div>
 
       {/* User Profile */}
       <div className="user-profile">
         {user ? (
           <>
-            <img src="https://via.placeholder.com/30" alt="User" />
             <span>{user.name}</span>
             <button onClick={logout}>Logout</button>
           </>
@@ -78,12 +84,27 @@ const Header = () => {
       {/* Modal for login/signup */}
       <AuthModal
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        onRequestClose={() => setIsModalOpen(false)}
         onLoginSuccess={(user) => {
           setUser(user);
           navigate("/home");
         }}
       />
+
+      {/* Drawer for Mobile */}
+      {isDrawerOpen && (
+        <div className="mobile-drawer">
+          <div className="close-icon" onClick={() => setIsDrawerOpen(false)}>
+            <IoMdClose size={24} />
+          </div>
+          <nav className="mobile-nav">
+            <Link to="/home" onClick={() => setIsDrawerOpen(false)}>Home</Link>
+            <Link to="/romance-love" onClick={() => setIsDrawerOpen(false)}>Romance & Love</Link>
+            <Link to="/about-us" onClick={() => setIsDrawerOpen(false)}>About Us</Link>
+            <Link to="/more" onClick={() => setIsDrawerOpen(false)}>More</Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
