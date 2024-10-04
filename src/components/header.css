@@ -91,6 +91,7 @@ header {
   
     .search-bar {
       flex-grow: 1;
+      display: none;
     }
   
     .logo img {
@@ -102,6 +103,7 @@ header {
     header {
       flex-wrap: wrap;
       padding: 16px;
+      display: none;
     }
   
     .search-bar input {

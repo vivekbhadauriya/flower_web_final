@@ -17,7 +17,7 @@ const AuthModal = ({ isOpen, onClose, onLoginSuccess }) => {
     try {
       const url = isLogin ? '/auth/login' : '/auth/register';
       const payload = isLogin ? { email, password } : { userName: name, email, password };
-      const { data } = await axios.post(`http://localhost:4000${url}`, payload, {
+      const { data } = await axios.post(`https://flower-web-qb5l.onrender.com${url}`, payload, {
         withCredentials: true // This is important for sending/receiving cookies
       });
       
