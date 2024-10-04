@@ -11,8 +11,6 @@
     box-sizing: border-box;
   }
   /* Header Styles */
-
-
   header{
     background-color:white;
     align-items: center;
@@ -80,65 +78,6 @@
 
   /*  Login/Signup Page  */
 
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    text-align: center;
-  }
-  
-  .close-button {
-    background: transparent;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  .form-group {
-    margin-bottom: 10px;
-  }
-  
-  input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-  }
-  
-  .submit-btn {
-    background-color: #28a745;
-    color: white;
-    padding: 10px;
-    width: 100%;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .submit-btn:hover {
-    background-color: #218838;
-  }
-  
-  .toggle-auth {
-    background: transparent;
-    border: none;
-    color: blue;
-    cursor: pointer;
-  }
-
-
   
 /* For the circular user icon/button */
 .user-icon-container {
@@ -166,48 +105,6 @@
   text-align: center;
 }
 
-/* Modal styling */
-.auth-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.modal-content h2 {
-  margin-bottom: 20px;
-}
-
-.modal-content input {
-  margin: 5px 0;
-  padding: 10px;
-  width: 100%;
-}
-
-.auth-modal button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.auth-modal button:hover {
-  background-color: #45a049;
-}
-
  
 
   
@@ -216,7 +113,7 @@
     padding: 20px;
   }
   
-  /* Hero Section Styles */
+  /* Hero Section Styles
   .hero-container {
     border-radius: 10px;
     overflow: hidden;
@@ -275,7 +172,151 @@
   .shop-now-button:hover {
     background-color: #444;
   }
-  
+   */
+
+   /* Regular CSS for Hero Section */
+.hero-section {
+  min-height: 600px;
+  background-color: white;
+  padding: 64px 32px;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero-left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.hero-label span {
+  color: #333;
+}
+
+.hero-main-heading {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #333;
+}
+
+.hero-description {
+  color: #666;
+  max-width: 500px;
+  font-size: 18px;
+}
+
+.hero-price-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.hero-price {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.hero-price span {
+  font-weight: bold;
+  font-size: 24px;
+  color: #333;
+}
+
+.hero-select {
+  background: none;
+  border: none;
+  color: #333;
+  outline: none;
+}
+
+.hero-button {
+  background-color: #e91e63;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #d81b60;
+}
+
+.hero-image-container {
+  position: relative;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.float-element {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 182, 193, 0.5);
+  animation: float 3s ease-in-out infinite;
+}
+
+.float-element-small {
+  width: 32px;
+  height: 32px;
+}
+
+.float-element-medium {
+  width: 24px;
+  height: 24px;
+}
+
+.float-element-large {
+  width: 16px;
+  height: 16px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float-delay {
+  animation-delay: 1s;
+}
+
 
   .start-from{
     background-color: #eb7397c4;
@@ -761,7 +802,7 @@ body {
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 200px;
+  width: 300px;
 }
 
 .product-image {
@@ -1080,4 +1121,170 @@ body {
   .service-images img {
     width: 100%;
   }
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.products-section {
+  padding: 2rem 0;
+  flex-grow: 1;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1rem;
+}
+
+.product-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.price {
+  font-weight: bold;
+  color: #e44d26;
+  margin: 0.5rem 0;
+}
+
+.description {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.add-to-cart {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #45a049;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Featured Products Section */
+.featured-products {
+  padding: 2rem 0;
+  background-color: #f9f9f9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Add these styles to your AppCss.css file */
+
+.whatsapp-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #25D366; /* WhatsApp green color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.whatsapp-button:hover {
+  background-color: #128C7E; /* Darker shade of WhatsApp green */
+}
+
+.whatsapp-button svg {
+  vertical-align: middle;
+}
+
+/* Animation for the button */
+.whatsapp-button:active {
+  transform: scale(0.98);
+}
+
+/* Make sure product cards have proper padding */
+.product-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Optional: Add a hover effect to the entire card */
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }

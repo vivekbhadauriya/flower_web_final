@@ -1,27 +1,34 @@
 import React, { useState } from 'react';
-import './AppCss.css'; 
+import './auth.css'; 
 import axios from 'axios';
 
 const AuthModal = ({ isOpen, onClose, onLoginSuccess }) => {
-  const [isLogin, setIsLogin] = useState(true); // Toggle between login and signup
+  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState(''); // Needed for signup
+  const [name, setName] = useState('');
+  const [error, setError] = useState('');
 
   if (!isOpen) return null;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     try {
-      const url = isLogin ? '/login' : '/signup'; // Adjust for your backend routes
-      const payload = isLogin ? { email, password } : { name, email, password };
-      const { data } = await axios.post(`backend.com${url}`, payload);
+      const url = isLogin ? '/auth/login' : '/auth/register';
+      const payload = isLogin ? { email, password } : { userName: name, email, password };
+      const { data } = await axios.post(`http://localhost:4000${url}`, payload, {
+        withCredentials: true // This is important for sending/receiving cookies
+      });
       
-      localStorage.setItem('token', data.token); // Save token in localStorage
-      onLoginSuccess(data.user); // Callback to set the user in Header and trigger redirection
-      onClose(); // Close the modal
+      if (data.success) {
+        onLoginSuccess(data.data); // Pass the user data
+        onClose();
+      } else {
+        setError(data.message || 'An error occurred');
+      }
     } catch (err) {
-      console.error('Error:', err.response.data);
+      setError(err.response?.data?.message || 'An error occurred');
     }
   };
 
@@ -30,6 +37,8 @@ const AuthModal = ({ isOpen, onClose, onLoginSuccess }) => {
       <div className="modal-content">
         <button onClick={onClose} className="close-button">&times;</button>
         <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
+
+        {error && <div className="error-message">{error}</div>}
 
         <form onSubmit={handleSubmit}>
           {!isLogin && (
@@ -58,10 +67,10 @@ const AuthModal = ({ isOpen, onClose, onLoginSuccess }) => {
             <label>Password</label>
             <input 
               type="password" 
-                value={password} 
-                onChange={(e) => setPassword(e.target.value)} 
-                required 
-              />
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+              required 
+            />
           </div>
 
           <button type="submit" className="submit-btn">

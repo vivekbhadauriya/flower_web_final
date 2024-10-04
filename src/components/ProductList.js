@@ -1,53 +1,80 @@
-import React from 'react';
-import Product from './Product'; // Assuming Product component exists
-import Footer from "../components/Footer";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { FaWhatsapp } from "react-icons/fa6";
+import './AppCss.css';
 
-const ProductList = () => {
-  const products = [
-    { id: 1, name: 'Flower Basket', price: '300Rs', image: 'flower-basket.jpg', backgroundColor: '#f5f5f5' },
-    { id: 2, name: 'Chocolate Bouquet', price: '600Rs', image: 'chocolate-bouquet.jpg', backgroundColor: '#f5f5f5' },
-    { id: 3, name: 'Flower Bouquet', price: '450Rs', image: 'flower-bouquet.jpg', backgroundColor: '#f5f5f5' },
-    { id: 4, name: 'Rose Bouquet', price: '300Rs', image: 'rose-bouquet.jpg', backgroundColor: '#f5f5f5' }
-  ];
+const ProductList = ({ category }) => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+  // You can change this to your business phone number
+  const whatsappNumber = '919639475868'; // Format: country code + phone number
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/products');
+        setProducts(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [category]);
+
+  const handleWhatsAppClick = (product) => {
+    // Create the message
+    const message = `Hi! I would like to order:\n\n` +
+      `Product: ${product.name}\n` +
+      `Price: ₹${product.price}\n\n` +
+      `Please provide more details about delivery and payment.`;
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(message);
+
+    // Create WhatsApp URL
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+  };
+
+  if (loading) {
+    return <div className="loading">Loading products...</div>;
+  }
 
   return (
-    <div className="product-page">
-      {/* Quote Section */}
-      <div className="quote-section">
-        <p className="quote">
-          "Like flowers in the sun, our love blossoms and grows, filling each moment with beauty and grace."
-        </p>
-      </div>
-
-      {/* Featured Products Section */}
-      <div className="featured-products-section">
-        <h2 className="section-title">Featured Product's</h2>
-        <div className="product-list">
+    <section className="products-section">
+      <div className="container">
+        <h2 className="section-title">
+          {category ? `${category} Products` : 'All Products'}
+        </h2>
+        <div className="products-grid">
           {products.map((product) => (
-            <Product
-              key={product.id}
-              name={product.name}
-              price={product.price}
-              image={product.image}
-              backgroundColor={product.backgroundColor}
-            />
+            <div key={product._id} className="product-card">
+              <div className="product-image">
+                <img src={product.image} alt={product.name} />
+              </div>
+              <div className="product-info">
+                <h3>{product.name}</h3>
+                <p className="price">₹{product.price}</p>
+                <p className="description">{product.description}</p>
+                <button 
+                  className="whatsapp-button"
+                  onClick={() => handleWhatsAppClick(product)}
+                >
+                  <FaWhatsapp size={20} />
+                  Order on WhatsApp
+                </button>
+              </div>
+            </div>
           ))}
         </div>
       </div>
-
-      {/* Sale Section */}
-      <div className="sale-section">
-        <div className="sale-message">
-          <img src="sale-image.jpg" alt="Sale" className="sale-image" />
-          <div className="sale-text">
-            <h2>Hurry Up</h2>
-            <p>Hot deal | Sale upto 20% Off</p>
-            <a href="/shop-now" className="shop-now-button">Shop Now</a>
-          </div>
-        </div>
-      </div>
-      <Footer/>
-    </div>
+    </section>
   );
 };
 

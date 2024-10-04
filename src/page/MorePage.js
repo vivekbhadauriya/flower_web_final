@@ -2,7 +2,12 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-
+import haldi from "../assets/Images/haldidecoration - 49999rs.jpg"
+import mhendi from "../assets/Images/haldi-and-mehndi-decoration - 49999rs.jpg"
+import necklace from "../assets/Images/flower necklace - 999rs.jpg"
+import earings from "../assets/Images/flower jewelery2 - 1999rs.jpg"
+import mandap from "../assets/Images/mandap.jpg"
+import mandap2 from "../assets/Images/mandap2.jpg" 
 const MorePage = () => {
   return (
     <div className="more-page">
@@ -20,22 +25,22 @@ const MorePage = () => {
         <div className="service-category">
           <h2>Haldi & Mehndi Ceremony</h2>
           <div className="service-images">
-            <img src="/path/to/haldi1.jpg" alt="Haldi ceremony" />
-            <img src="/path/to/haldi2.jpg" alt="Mehndi ceremony" />
+            <img src={haldi} alt="Haldi ceremony" />
+            <img src={mhendi} alt="Mehndi ceremony" />
           </div>
         </div>
         <div className="service-category">
           <h2>Flower jewelery</h2>
           <div className="service-images">
-            <img src="/path/to/flower-jewelry1.jpg" alt="Flower necklace" />
-            <img src="/path/to/flower-jewelry2.jpg" alt="Flower earrings" />
+            <img src={necklace} alt="Flower necklace" />
+            <img src={earings} alt="Flower earrings" />
           </div>
         </div>
         <div className="service-category">
           <h2>Mandap decoration</h2>
           <div className="service-images">
-            <img src="/path/to/mandap1.jpg" alt="Mandap decoration" />
-            <img src="/path/to/mandap2.jpg" alt="Wedding venue" />
+            <img src={mandap} alt="Mandap decoration" />
+            <img src={mandap2} alt="Wedding venue" />
           </div>
         </div>
       </section>

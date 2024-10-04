@@ -1,5 +1,5 @@
 import React from 'react';
-import "./AppCss.css"
+import "./review.css";
 
 const CustomerReviews = () => {
   const reviews = [
@@ -11,13 +11,13 @@ const CustomerReviews = () => {
   return (
     <section className="customer-reviews">
       <div className="container">
-        <h2>Customer Reviews</h2>
+        <h2>What Our Customers Say</h2>
         <div className="review-grid">
           {reviews.map((review) => (
             <div key={review.id} className="review-card">
               <img src={review.avatar} alt={review.name} className="avatar" />
               <h3 className="reviewer-name">{review.name}</h3>
-              <p className="review-content">{review.content}</p>
+              <p className="review-content">"{review.content}"</p>
             </div>
           ))}
         </div>
@@ -25,4 +25,5 @@ const CustomerReviews = () => {
     </section>
   );
 };
+
 export default CustomerReviews;
