@@ -74,7 +74,7 @@ export const App = () => {
     },
     {
       _id: "0",
-      name: "Car Decoration",
+      name: "Mandap Decoration",
       price: 9999,
       description: "Fresh flowres for your special occasion",
       image: newimage,
