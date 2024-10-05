@@ -20,9 +20,9 @@ const AuthModal = ({ isOpen, onClose, onLoginSuccess }) => {
       const { data } = await axios.post(`https://flower-web-qb5l.onrender.com${url}`, payload, {
         withCredentials: true // This is important for sending/receiving cookies
       });
-      
+      console.log(data)
       if (data.success) {
-        onLoginSuccess(data.data); // Pass the user data
+        onLoginSuccess(data.email); // Pass the user data
         onClose();
       } else {
         setError(data.message || 'An error occurred');

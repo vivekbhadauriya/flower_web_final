@@ -1,0 +1,145 @@
+/* Gallery.css */
+.gallery-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 60px;
+}
+
+.gallery-title {
+  font-family: 'Times New Roman', serif;
+  font-style: italic;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 50px;
+  color: #333;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 10px;
+}
+
+/* Make the interior design image span 2 columns */
+.gallery-item:nth-child(5) {
+  grid-column: span 2;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  background-color: #f8f8f8;
+}
+
+/* Adjust height for spanned image */
+.gallery-item:nth-child(5) .gallery-image {
+  height: 400px;
+}
+
+.gallery-info {
+  margin-top: 12px;
+}
+
+.gallery-info h2 {
+  font-size: 15px;
+  color: #333;
+  margin: 0;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.gallery-info p {
+  font-size: 12px;
+  color: #888;
+  margin: 4px 0 0 0;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .gallery-container {
+    padding: 30px 40px;
+  }
+  
+  .gallery-grid {
+    gap: 25px;
+  }
+  
+  .gallery-image {
+    height: 250px;
+  }
+  
+  .gallery-item:nth-child(5) .gallery-image {
+    height: 350px;
+  }
+}
+
+@media (max-width: 992px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .gallery-item:nth-child(5) {
+    grid-column: span 1;
+  }
+  
+  .gallery-image,
+  .gallery-item:nth-child(5) .gallery-image {
+    height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-container {
+    padding: 20px;
+  }
+
+  .gallery-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .gallery-image,
+  .gallery-item:nth-child(5) .gallery-image {
+    height: 250px;
+  }
+  
+  .gallery-info h2 {
+    font-size: 14px;
+  }
+  
+  .gallery-info p {
+    font-size: 11px;
+  }
+}
+
+/* Hover Effects */
+.gallery-item {
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover {
+  opacity: 0.9;
+}
+
+/* Fix image rendering */
+img {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+}

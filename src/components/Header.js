@@ -60,7 +60,8 @@ const Header = () => {
       <nav className="Pagesname">
         <Link to="/home">Home</Link>
         <Link to="/romance-love">Romance & Love</Link>
-        <Link to="/about-us">About Us</Link>
+        <Link to="/about">About Us</Link>
+        <Link to="/Gallery">Gallery</Link>
         <Link to="/more">More</Link>
       </nav>
 
@@ -100,8 +101,9 @@ const Header = () => {
           <nav className="mobile-nav">
             <Link to="/home" onClick={() => setIsDrawerOpen(false)}>Home</Link>
             <Link to="/romance-love" onClick={() => setIsDrawerOpen(false)}>Romance & Love</Link>
-            <Link to="/about-us" onClick={() => setIsDrawerOpen(false)}>About Us</Link>
+            <Link to="/about" onClick={() => setIsDrawerOpen(false)}>About Us</Link>
             <Link to="/more" onClick={() => setIsDrawerOpen(false)}>More</Link>
+            <Link to="/Gallery" onClick={() => setIsDrawerOpen(false)}>More</Link>
           </nav>
         </div>
       )}
