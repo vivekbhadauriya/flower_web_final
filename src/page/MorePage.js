@@ -1,23 +1,33 @@
-import React from 'react';
+import React from "react";
 // import { Link } from 'react-router-dom';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import haldi from "../assets/Images/haldidecoration - 49999rs.jpg"
-import mhendi from "../assets/Images/haldi-and-mehndi-decoration - 49999rs.jpg"
-import necklace from "../assets/Images/flower necklace - 999rs.jpg"
-import earings from "../assets/Images/flower jewelery2 - 1999rs.jpg"
-import mandap from "../assets/Images/mandap.jpg"
-import mandap2 from "../assets/Images/mandap2.jpg" 
+
+import haldi from "../assets/Images/haldidecoration - 49999rs.jpg";
+import mhendi from "../assets/Images/haldi-and-mehndi-decoration - 49999rs.jpg";
+import necklace from "../assets/Images/flower necklace - 999rs.jpg";
+import earings from "../assets/Images/flower jewelery2 - 1999rs.jpg";
+import mandap from "../assets/Images/mandap.jpg";
+import mandap2 from "../assets/Images/mandap2.jpg";
 const MorePage = () => {
+  const message = "Hello, I would like to plan a special day.";
+  const whatsappNumber = "919266315117";
+  const encodedMessage = encodeURIComponent(message);
   return (
     <div className="more-page">
       <section className="hero">
         <div className="hero-content">
-          <h1>"Where dreams meet design, and love is celebrated in every detail."</h1>
-          <button className="cta-button">Get in Touch</button>
+          <h1>
+            "Where dreams meet design, and love is celebrated in every detail."
+          </h1>
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=${encodedMessage}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="cta-button">Get in Touch</button>
+          </a>
         </div>
         <div className="hero-image">
-          <img src="/path/to/wedding-image.jpg" alt="Wedding ceremony" />
+          <img src={mandap2} alt="Wedding ceremony" />
         </div>
       </section>
 
@@ -47,10 +57,16 @@ const MorePage = () => {
 
       <section className="cta-banner">
         <h2>Are you ready to plan a special day.</h2>
-        <button className="cta-button">Get in touch</button>
+        <a
+          href={`https://wa.me/${whatsappNumber}?text=${encodedMessage}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="cta-button">Get in Touch</button>
+        </a>
       </section>
-      <Footer/>
-      <Header/>
+      {/* <Footer/>
+      <Header/> */}
     </div>
   );
 };

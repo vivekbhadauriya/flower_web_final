@@ -28,8 +28,57 @@ import daisy from "./assets/Images/smalldaisy - 49rs.jpg";
 import tulip from "./assets/Images/smalltulip - 49rs.jpg";
 import sunFlowerVase from "./assets/Images/sunflower vase - 599rs.jpg";
 import Gallery from "./components/Gallery/gallery.jsx";
+import newimage from "./assets/Images/new.jpg";
+import newimage2 from "./assets/Images/new2.jpg";
+import newimage3 from "./assets/Images/new3.jpg";
+import newimage4 from "./assets/Images/new4.jpg";
+import newimage5 from "./assets/Images/new5.jpg";
+import newimage6 from "./assets/Images/new6.jpg";
+
 export const App = () => {
   const images = [
+    {
+      _id: "-1",
+      name: "Wedding halls",
+      price: 9999,
+      description: "New Image",
+      image: newimage2,
+    },
+    {
+      _id: "-2",
+      name: "Mandap Enterance",
+      price: 9999,
+      description: "New Image",
+      image: newimage3,
+    },
+    {
+      _id: "-3",
+      name: "Flowers",
+      price: 9999,
+      description: "New Image",
+      image: newimage4,
+    },
+    {
+      _id: "-4",
+      name: "Flower Necklace",
+      price: 9999,
+      description: "New Image",
+      image: newimage5,
+    },
+    {
+      _id: "-5",
+      name: "Flower Necklace",
+      price: 9999,
+      description: "New Image",
+      image: newimage6,
+    },
+    {
+      _id: "0",
+      name: "Car Decoration",
+      price: 9999,
+      description: "Fresh flowres for your special occasion",
+      image: newimage,
+    },
     {
       _id: "1",
       name: "Car Decoration",
