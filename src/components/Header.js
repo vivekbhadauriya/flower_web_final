@@ -99,11 +99,21 @@ const Header = () => {
             <IoMdClose size={24} />
           </div>
           <nav className="mobile-nav">
-            <Link to="/home" onClick={() => setIsDrawerOpen(false)}>Home</Link>
-            <Link to="/romance-love" onClick={() => setIsDrawerOpen(false)}>Romance & Love</Link>
-            <Link to="/about" onClick={() => setIsDrawerOpen(false)}>About Us</Link>
-            <Link to="/more" onClick={() => setIsDrawerOpen(false)}>More</Link>
-            <Link to="/Gallery" onClick={() => setIsDrawerOpen(false)}>More</Link>
+            <Link to="/home" onClick={() => setIsDrawerOpen(false)}>
+              Home
+            </Link>
+            <Link to="/romance-love" onClick={() => setIsDrawerOpen(false)}>
+              Romance & Love
+            </Link>
+            <Link to="/about" onClick={() => setIsDrawerOpen(false)}>
+              About Us
+            </Link>
+            <Link to="/Gallery" onClick={() => setIsDrawerOpen(false)}>
+              Gallery
+            </Link>
+            <Link to="/more" onClick={() => setIsDrawerOpen(false)}>
+              More
+            </Link>
           </nav>
         </div>
       )}
