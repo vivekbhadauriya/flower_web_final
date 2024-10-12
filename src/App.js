@@ -6,7 +6,6 @@ import ProductList from "./components/ProductList";
 import CustomerReviews from "./components/CustomerReviews";
 import Footer from "./components/Footer";
 import ProductGrid from "./components/product.jsx";
-import "./components/AppCss.css";
 import AboutPage from "./page/AboutPage.js";
 import MorePage from "./page/MorePage.js";
 import PreviewGallery from "./components/Gallery/preview.jsx";
@@ -34,6 +33,8 @@ import newimage3 from "./assets/Images/new3.jpg";
 import newimage4 from "./assets/Images/new4.jpg";
 import newimage5 from "./assets/Images/new5.jpg";
 import newimage6 from "./assets/Images/new6.jpg";
+// import HomePage from "./components/Hero.js";
+import ProductPage from "./page/HomePage.js";
 
 export const App = () => {
   const images = [
@@ -359,8 +360,10 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <ProductList />
-      <ProductGrid />
+      <ProductPage></ProductPage>
+
+      {/* <ProductList /> */}
+      {/* <ProductGrid /> */}
       {/* Step 2: Pass the images array to PreviewGallery */}
       <PreviewGallery images={images} />
       <CustomerReviews />

@@ -23,7 +23,7 @@ const MorePage = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className="cta-button">Get in Touch</button>
+            <button className="cta-button">Order on WhatsApp</button>
           </a>
         </div>
         <div className="hero-image">
@@ -62,7 +62,7 @@ const MorePage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button className="cta-button">Get in Touch</button>
+          <button className="cta-button">Order on WhatsApp</button>
         </a>
       </section>
       {/* <Footer/>

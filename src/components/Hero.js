@@ -2,11 +2,21 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./AppCss.css"; // Ensure this file is linked
 import pic from "../assets/Untitled.jpg";
+import { FaWhatsapp } from "react-icons/fa";
 const Hero = () => {
   const navigate = useNavigate();
 
   const handleShopNowClick = () => {
     navigate("/productlist");
+  };
+  const handleWhatsAppClick = () => {
+    const message = "Hello, I would like to plan a special day.";
+    const whatsappNumber = "919266315117";
+    const encodedMessage = encodeURIComponent(message);
+    window.open(
+      `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`,
+      "_blank"
+    );
   };
 
   return (
@@ -24,7 +34,7 @@ const Hero = () => {
 
             {/* Main Heading */}
             <div className="hero-headings">
-              <h1 className="hero-main-heading">Uniquely Pink Blooms</h1>
+              <h1 className="hero-main-heading">Uniquely Fresh Blooms</h1>
               <h2 className="hero-main-heading">A Special Touch The</h2>
               <h2 className="hero-main-heading">Beauty Charm</h2>
             </div>
@@ -38,17 +48,24 @@ const Hero = () => {
             {/* Price and Actions */}
             <div className="hero-price-actions">
               <div className="hero-price">
-                <span>$20.00</span>
-                <select className="hero-select">
+                <span>₹450.00</span>
+                {/* <select className="hero-select">
                   <option>20 Flower</option>
                 </select>
                 <select className="hero-select">
                   <option>Location</option>
-                </select>
+                </select> */}
               </div>
-              <button onClick={handleShopNowClick} className="hero-button">
-                Add To Cart
+              <button
+                className="whatsapp-button"
+                onClick={() => handleWhatsAppClick()}
+              >
+                <FaWhatsapp size={20} />
+                Order on WhatsApp
               </button>
+              {/* <button onClick={handleShopNowClick} className="hero-button">
+                Add To Cart
+              </button> */}
             </div>
           </div>
 
