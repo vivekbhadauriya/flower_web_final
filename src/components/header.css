@@ -11,7 +11,7 @@ header {
 }
 
 .logo img {
-  height: 50px;
+  height: 42px;
   object-fit: contain;
   cursor: pointer;
 }
@@ -90,6 +90,7 @@ header {
   .search-bar {
     display: none; /* Hide search bar in mobile view */
   }
+  
 }
 
 /* Drawer for mobile */
@@ -132,6 +133,8 @@ header {
 @media (max-width: 480px) {
   .logo img {
     height: 40px;
+    width: 40px;
+    object-fit: cover;
   }
 
   .user-profile {
