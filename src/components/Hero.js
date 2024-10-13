@@ -35,8 +35,6 @@ const Hero = () => {
             {/* Main Heading */}
             <div className="hero-headings">
               <h1 className="hero-main-heading">Fresh Blooms</h1>
-              <h2 className="hero-main-heading">A Special Touch The</h2>
-              <h2 className="hero-main-heading">Beauty Charm</h2>
             </div>
 
             {/* Description */}

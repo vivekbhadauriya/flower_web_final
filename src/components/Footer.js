@@ -50,7 +50,7 @@ const Footer = () => {
                   className="flex gap-2"
                 >
                   <FaLocationArrow className="h-10 w-10"></FaLocationArrow>
-                  <li>Akshardham ,New Delhi</li>
+                  <li>Lodi Road Akshardham ,New Delhi</li>
                 </a>
               </div>
 
