@@ -58,11 +58,12 @@ To run the project locally:
 git clone https://github.com/vivekbhadauriya/flower_web_final.git
 cd flower_web_final
 
-3. Start the development server
-bash
-Copy
-Edit
+### 2. Install dependencies
+npm install
+
+### 3. Start the development server
 npm start
+
 Your app will be live at: http://localhost:3000
 
 🔗 WhatsApp Integration
