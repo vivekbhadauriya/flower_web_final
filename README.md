@@ -55,14 +55,9 @@ To run the project locally:
 
 ### 1. Clone the repository
 
-```bash
 git clone https://github.com/vivekbhadauriya/flower_web_final.git
 cd flower_web_final
-2. Install dependencies
-bash
-Copy
-Edit
-npm install
+
 3. Start the development server
 bash
 Copy
